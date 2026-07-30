@@ -105,7 +105,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navItems = role ? getNavItems(role) : [];
 
   const handleLogout = () => {
-    signOut({ callbackUrl: '/' });
+    const callbackUrl = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+      ? '/'
+      : 'https://international-scientific-and-techno.vercel.app/';
+    signOut({ callbackUrl });
   };
 
   const SidebarContent = () => (
