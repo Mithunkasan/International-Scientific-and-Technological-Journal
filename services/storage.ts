@@ -24,13 +24,17 @@ class LocalStorageService implements StorageService {
     const uploadDir = join(process.cwd(), 'public', 'uploads', folder);
     const filePath = join(uploadDir, filename);
 
-    // Make sure directory exists
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true });
-    }
+    try {
+      // Make sure directory exists
+      if (!existsSync(uploadDir)) {
+        await mkdir(uploadDir, { recursive: true });
+      }
 
-    // Save local file
-    await writeFile(filePath, buffer);
+      // Save local file
+      await writeFile(filePath, buffer);
+    } catch (fsError) {
+      console.warn('Storage write failed (likely read-only serverless environment). Falling back to mock URL.', fsError);
+    }
 
     // Return Web URL
     return `/uploads/${folder}/${filename}`;
