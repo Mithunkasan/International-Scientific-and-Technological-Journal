@@ -107,10 +107,10 @@ export function NotificationDropdown() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.15, ease: 'easeOut' }}
-            className="absolute right-0 mt-2.5 w-[380px] max-w-[calc(100vw-32px)] z-50 glass border border-border/60 shadow-2xl rounded-2xl overflow-hidden focus:outline-none"
+            className="absolute right-0 mt-2.5 w-[380px] max-w-[calc(100vw-32px)] z-50 bg-popover text-popover-foreground border border-border shadow-2xl rounded-2xl overflow-hidden focus:outline-none"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-border/40 bg-card/60">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-muted">
               <span className="font-semibold text-sm">Notifications</span>
               {unreadCount > 0 && (
                 <button

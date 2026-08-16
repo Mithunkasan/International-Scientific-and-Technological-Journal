@@ -306,7 +306,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       {/* Main Panel Content Container */}
       <div className="flex flex-1 min-h-[calc(100vh-64px)]">
         {/* Desktop Sidebar */}
-        <aside className="hidden md:block w-64 shrink-0 border-r border-border bg-card">
+        <aside className="hidden md:block w-64 shrink-0 border-r border-border bg-card sticky top-16 h-[calc(100vh-64px)] overflow-y-auto">
           <SidebarContent />
         </aside>
 

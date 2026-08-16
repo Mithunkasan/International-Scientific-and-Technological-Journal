@@ -34,7 +34,6 @@ export function PaperSubmitForm() {
   const [primaryDomain, setPrimaryDomain] = useState('');
   const [secondaryDomain, setSecondaryDomain] = useState('');
   const [country, setCountry] = useState('');
-  const [journalReference, setJournalReference] = useState('');
   const [agreement, setAgreement] = useState(false);
 
   // Upload Files
@@ -119,7 +118,7 @@ export function PaperSubmitForm() {
       formData.append('primaryDomain', primaryDomain);
       formData.append('secondaryDomain', secondaryDomain);
       formData.append('country', country);
-      formData.append('journalReference', journalReference);
+      formData.append('journalReference', '');
       formData.append('agreement', String(agreement));
 
       formData.append('manuscript', manuscript);
@@ -181,20 +180,6 @@ export function PaperSubmitForm() {
                   >
                     <option value="RESEARCH_PAPER">{t('submission.researchPaper')}</option>
                     <option value="REVIEW_PAPER">{t('submission.reviewPaper')}</option>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="journalRef">{t('submission.journalReference')}</Label>
-                  <Select
-                    id="journalRef"
-                    value={journalReference}
-                    onChange={(e) => setJournalReference(e.target.value)}
-                    disabled={loading}
-                  >
-                    <option value="">-- Choose Target Journal --</option>
-                    <option value="IEEE_TRANSACTIONS">IEEE Transactions on Intelligent Systems</option>
-                    <option value="SPRINGER_NATURE">Springer Journal of Applied Bioinformatics</option>
-                    <option value="ELSEVIER_AI">Elsevier Artificial Intelligence Review</option>
                   </Select>
                 </div>
               </div>
